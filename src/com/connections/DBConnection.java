@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-	static Connection connect() throws SQLException, ClassNotFoundException{
+	public static Connection connect() throws SQLException, ClassNotFoundException{
 		// load the driver
 		Class.forName("oracle.jdbc.OracleDriver");
 

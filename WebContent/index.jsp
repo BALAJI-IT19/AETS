@@ -1,1 +1,1 @@
-<%response.sendRedirect(request.getContextPath()+"/welcome.html");%>
+<%response.sendRedirect(request.getContextPath()+"/login.html");%>
