@@ -14,7 +14,7 @@ public class CheckLogin {
 		ResultSet rs = null;
 		try {
 			con = DBConnection.connect();
-			String query = "select password from aets where email=" + email;
+			String query = "select password from aets_emp_details where email=" + email;
 			rs = con.createStatement().executeQuery(query);
 			boolean flag = false;
 			while (rs.next()) {

@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bean.RegisterEmp;
+import com.dao.EmpDetails;
+import com.dao.EmpDetails;
+import com.utility.Encryption;
 import com.validation.FormValidation;
 
 @Controller
@@ -18,7 +22,7 @@ public class MainController {
 		return "login";
 	}
 
-	@RequestMapping(value = "loginController",method = RequestMethod.POST)
+	@RequestMapping(value = "loginController", method = RequestMethod.POST)
 	public ModelAndView loginController(@RequestParam String email,
 			@RequestParam String password) throws ClassNotFoundException,
 			SQLException {
@@ -38,9 +42,33 @@ public class MainController {
 		}
 		if ("success".equals(error)) {
 			com.dao.CheckLogin cl = new com.dao.CheckLogin();
-			System.out.println(cl.hasUser(email, password));
-			mav.setViewName("home");
+			error = cl.hasUser(email, password);
+			if ("success".equals(error))
+			{
+				mav.setViewName("welcome");
+				mav.addObject("error",error);
+			}
+			else
+				mav.setViewName("login");
 		}
+		return mav;
+	}
+
+	@RequestMapping(value = "register")
+	public String register() {
+		return "register";
+	}
+
+	@RequestMapping(value = "registerController")
+	public ModelAndView registerController(RegisterEmp emp) {
+		Encryption encrypt = new Encryption();
+		ModelAndView mav = new ModelAndView();
+		emp.setPassword(encrypt.encryptOrDecrypt(emp.getPassword()));
+		EmpDetails post = new EmpDetails();
+		System.out.println("before register");
+		String msg = post.post(emp);
+		System.out.println("after register");
+		mav.setViewName("login");
 		return mav;
 	}
 

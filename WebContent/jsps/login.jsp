@@ -6,7 +6,7 @@
 <head>
 <title>Login</title>
 
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="/AETS/css/style.css">
 </head>
 <body>
 	<br>
@@ -18,43 +18,38 @@
 	<div class="login">
 		<c:if test="${(error != 'success') && (error != null)}">
 			<p>
-				<mark style="color: white; background-color: red;">${error} </mark>
+				<mark style="color: white; background-color: red;">${error}</mark>
 			</p>
 		</c:if>
-		<form action="">
+		<form action="loginController.html" method="post">
 
-		
+			<label> <input type="email" class="input" name="email"
+				placeholder="EMAIL" />
+				<div class="line-box">
 
+					<div class="line"></div>
 
+				</div>
 
-		<label> <input type="email" class="input" name="email"
-			placeholder="EMAIL" />
-			<div class="line-box">
+			</label> <label> <input type="password" class="input" name="password"
+				placeholder="PASSWORD" />
 
-				<div class="line"></div>
+				<div class="line-box">
 
-			</div>
+					<div class="line"></div>
 
-		</label> 
-		 <label> <input type="password" class="input" name="password"
-			placeholder="PASSWORD" />
+				</div>
 
-			<div class="line-box">
+			</label>
 
-				<div class="line"></div>
+			<button type="submit">submit</button>
 
-			</div>
-
-		</label> 
-
-		<button type="submit">submit</button>
-
-	</form>
+		</form>
 	</div>
 	<br>
 	<center>
 		<div id="outer">
-			<a href="RegisterController.html">SignUp</a> <a
+			<a href="register.html">SignUp</a> <a
 				href="ForgotPasswordController.html">Forgot Password?</a>
 		</div>
 	</center>

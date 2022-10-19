@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,9 +9,10 @@
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<form>
+	<form>
 
-		<h4 class="text-warning text-center pt-5">Please Enter Your Designated Email</h4>
+		<h4 class="text-warning text-center pt-5">Please Enter Your
+			Designated Email</h4>
 
 
 
@@ -22,16 +24,16 @@
 
 			</div>
 
-		</label> 
+		</label>
 
 		<button type="submit">submit</button>
 
 	</form>
-	
-<c:if test="${EnterIF condition}">
+
+	<c:if test="${EnterIF condition}">
 A new generated password has been sent to your registered Email-ID.
 
 <button type="button" onclick="">To Login</button>
-</c:if>
+	</c:if>
 </body>
 </html>
