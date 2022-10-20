@@ -176,10 +176,6 @@ public class FormValidation {
 		if (!(result.equals(isEmpty))) {
 			return "Password : " + isEmpty;
 		}
-		String isCrtSize = utility.isSize(pwd, 16);
-		if (!(result.equals(isCrtSize))) {
-			return isCrtSize;
-		}
 		return result;
 	}
 

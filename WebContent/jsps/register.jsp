@@ -47,7 +47,7 @@
 
 			</div>
 
-		</label> <label> <input type="text" class="input" name="email"
+		</label> <label> <input type="email" class="input" name="email"
 			placeholder="Enter Your Office Email" required />
 			<div class="line-box">
 

@@ -22,7 +22,7 @@ public class EmpDetails {
 			ps.setString(4, emp.getLocation());
 			ps.setString(5, emp.getFname());
 			ps.setString(6, emp.getPassword());
-			ps.setString(7, emp.getEmail());
+			ps.setString(7, "'"+emp.getEmail()+"'");
 			ps.execute();
 			return "success";
 		} catch (ClassNotFoundException | SQLException e) {
@@ -33,15 +33,17 @@ public class EmpDetails {
 	public Employee get(String email) throws ClassNotFoundException, SQLException {
 		Employee emp = new Employee();
 		Connection con = DBConnection.connect();
-	    String s = "select * [except password] from aets_emp_details where email="+email;
-	    ResultSet rs = con.createStatement().executeQuery(s);
+	    String s = "select * from aets_emp_details where email=?";
+	    PreparedStatement ps = con.prepareStatement(s);
+	    ps.setString(1, email);
+	    ResultSet rs = ps.executeQuery();
 	    while(rs.next()){
 	    	emp.setEmpId(rs.getString(1));
 	    	emp.setPhone(rs.getString(2));
 	    	emp.setLname(rs.getString(3));
 	    	emp.setLocation(rs.getString(4));
 	    	emp.setFname(rs.getString(5));
-	        emp.setEmail(rs.getString(6));
+	        emp.setEmail(rs.getString(7));
 	    }
 		return emp;
 	}

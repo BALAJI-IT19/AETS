@@ -21,7 +21,7 @@
 				<mark style="color: white; background-color: red;">${error}</mark>
 			</p>
 		</c:if>
-		<form action="loginController.html" method="post">
+		<form action="loginController.html">
 
 			<label> <input type="email" class="input" name="email"
 				placeholder="EMAIL" />

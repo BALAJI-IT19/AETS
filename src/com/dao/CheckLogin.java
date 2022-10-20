@@ -1,6 +1,7 @@
 package com.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -14,12 +15,19 @@ public class CheckLogin {
 		ResultSet rs = null;
 		try {
 			con = DBConnection.connect();
-			String query = "select password from aets_emp_details where email=" + email;
-			rs = con.createStatement().executeQuery(query);
+			System.out.print("\n\n\n"+email+"\n\n\n"+pwd+"\n\n\n");
+			String query = "select * from aets_emp_details where email=?";
+			PreparedStatement ps = con.prepareStatement(query);
+			System.out.println(query);
+			ps.setString(1, email);
+			System.out.println("\n\n\n");
+			rs = ps.executeQuery();
 			boolean flag = false;
 			while (rs.next()) {
 				flag = true;
-				if (pwd.equals(rs.getString(1))) {
+				String str = rs.getString(6);
+				System.out.print(str+"\n\n\n");
+				if (pwd.equals(str)) {
 					result = "success";
 				} else {
 					result = " Incorrect password";

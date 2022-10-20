@@ -2,6 +2,7 @@ package com.controller;
 
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,6 +13,7 @@ import com.dao.EmpDetails;
 import com.utility.Encryption;
 import com.validation.FormValidation;
 
+@Controller
 public class LoginController {
 
 	@RequestMapping(value = "login")
@@ -41,12 +43,13 @@ public class LoginController {
 			com.dao.CheckLogin cl = new CheckLogin();
 			com.utility.Encryption en = new Encryption();
 			error = cl.hasUser(email, en.encryptOrDecrypt(password));
-			if ("success".equals(error)){
+			if ("success".equalsIgnoreCase(error)){
 				mav.setViewName("welcome");
-				com.dao.EmpDetails ed = new EmpDetails();
-				mav.addObject("emp",ed.get(email));
-			}   
-			else {
+				EmpDetails ed = new EmpDetails();
+				Employee emp = ed.get(email);
+				mav.addObject("emp",emp);
+				return mav;
+			} else {
 				mav.addObject("error", error);
 				mav.setViewName("login");
 			}
