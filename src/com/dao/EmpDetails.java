@@ -2,14 +2,15 @@ package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.bean.RegisterEmp;
+import com.bean.Employee;
 import com.connections.DBConnection;
 
 public class EmpDetails {
 
-	public String post(RegisterEmp emp) {
+	public String post(Employee emp) {
 		Connection con;
 		try {
 			con = DBConnection.connect();
@@ -23,10 +24,26 @@ public class EmpDetails {
 			ps.setString(6, emp.getPassword());
 			ps.setString(7, emp.getEmail());
 			ps.execute();
-			return "Inserted successfully";
+			return "success";
 		} catch (ClassNotFoundException | SQLException e) {
 			return "Exception :" + e;
 		}
+	}
+
+	public Employee get(String email) throws ClassNotFoundException, SQLException {
+		Employee emp = new Employee();
+		Connection con = DBConnection.connect();
+	    String s = "select * [except password] from aets_emp_details where email="+email;
+	    ResultSet rs = con.createStatement().executeQuery(s);
+	    while(rs.next()){
+	    	emp.setEmpId(rs.getString(1));
+	    	emp.setPhone(rs.getString(2));
+	    	emp.setLname(rs.getString(3));
+	    	emp.setLocation(rs.getString(4));
+	    	emp.setFname(rs.getString(5));
+	        emp.setEmail(rs.getString(6));
+	    }
+		return emp;
 	}
 
 }

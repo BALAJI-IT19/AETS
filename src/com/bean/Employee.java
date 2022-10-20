@@ -1,6 +1,6 @@
 package com.bean;
 
-public class RegisterEmp {
+public class Employee {
 	
 	private String empId;
 	private String fname;

@@ -14,6 +14,12 @@
 
 		<div class="forHeading">Registration Page</div>
 
+		<c:if test="${(error != 'success') && (error != null)}">
+			<p>
+				<mark style="color: white; background-color: red;">${error}</mark>
+			</p>
+		</c:if>
+
 		<label> <input type="text" class="input" name="empId"
 			placeholder="Enter Your Employee ID" required />
 
