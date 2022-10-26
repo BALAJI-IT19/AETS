@@ -14,7 +14,7 @@
 
 			<p>
 				<label>Start</label><select name="start" id="start">
-					<option value="${emp.getLocation()}" selected>${emp.getLocation()}</option>
+					<option value="${sessionScope.emp.getLocation()}" selected>${sessionScope.emp.getLocation()}</option>
 					<option value="DLF">DLF</option>
 					<option value="sother">Other</option>
 				</select>
@@ -26,7 +26,7 @@
 			</p>
 			<p>
 				<label>End</label> <select name="end" id="end"><option
-						value="${emp.getLocation()}">${emp.getLocation()}</option>
+						value="${sessionScope.emp.getLocation()}">${sessionScope.emp.getLocation()}</option>
 					<option value="DLF" selected>DLF</option>
 					<option value="eother">Others</option>
 				</select>
@@ -37,8 +37,7 @@
 
 			</p>
 			<p>
-				<label>Time</label><input type="time" name="time" /><br> <input
-					type="hidden" name="empId" value="${emp.getEmpId()}">
+				<label>Time</label><input type="time" name="time" /><br>
 			</p>
 			<p class="cacn">
 				<input type="submit" value="Book my cab" class="s-btn" /> <input
@@ -48,44 +47,3 @@
 		</form>
 	</div>
 </section>
-<script type="text/javascript">
-	$(function() {
-
-		$("#start").change(function() {
-
-			if ($(this).val() == "sother") {
-
-				$("#startTxtOther").removeAttr("disabled");
-
-				$("#startTxtOther").focus();
-
-			} else {
-
-				$("#startTxtOther").attr("disabled", "disabled");
-
-			}
-
-		});
-
-	});
-
-	$(function() {
-
-		$("#end").change(function() {
-
-			if ($(this).val() == "eother") {
-
-				$("#endTxtOther").removeAttr("disabled");
-
-				$("#endTxtOther").focus();
-
-			} else {
-
-				$("#endTxtOther").attr("disabled", "disabled");
-
-			}
-
-		});
-
-	});
-</script>

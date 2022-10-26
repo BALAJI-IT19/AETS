@@ -2,6 +2,9 @@ package com.controller;
 
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,10 +25,10 @@ public class LoginController {
 		return "login";
 	}
 
-	@RequestMapping(value = "login-controller")
+	@RequestMapping(value = "login-controller", method = RequestMethod.POST)
 	public ModelAndView loginController(@RequestParam String email,
-			@RequestParam String password) throws ClassNotFoundException,
-			SQLException {
+			@RequestParam String password, HttpServletRequest request)
+			throws ClassNotFoundException, SQLException {
 		ModelAndView mav = new ModelAndView();
 		FormValidation fv = new FormValidation();
 		String error = fv.checkEmail(email);
@@ -45,10 +48,11 @@ public class LoginController {
 			com.utility.Encryption en = new Encryption();
 			error = cl.hasUser(email, en.encryptOrDecrypt(password));
 			if ("success".equalsIgnoreCase(error)) {
+				HttpSession session = request.getSession();
 				mav.setViewName("welcome-layout");
 				EmpDetails ed = new EmpDetails();
 				Employee emp = ed.get(email);
-				mav.addObject("emp", emp);
+				session.setAttribute("emp", emp);
 				return mav;
 			} else {
 				mav.addObject("error", error);
@@ -57,5 +61,4 @@ public class LoginController {
 		}
 		return mav;
 	}
-
 }

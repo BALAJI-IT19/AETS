@@ -20,4 +20,9 @@
 		<put-attribute name="footer" value="/jsps/common/footer.jsp" />
 	</definition>
 
+	<definition name="my-rides-layout" extends="welcome-layout"
+		template="/jsps/layout/my-rides-layout.jsp">
+		<put-attribute name="middle" value="/jsps/middle/my-rides.jsp" />
+	</definition>
+
 </tiles-definitions>

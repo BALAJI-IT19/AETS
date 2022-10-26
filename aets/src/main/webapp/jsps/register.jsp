@@ -5,12 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Register Page</title>
-<link rel="stylesheet" href="/AETS/css/style.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style-normal.css">
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
-	<form action="register-controller.html">
+	<form action="register-controller.html" method="post">
 
 		<div class="forHeading">Registration Page</div>
 

@@ -7,6 +7,34 @@ public class Booking {
 	private String endTxtOther;
 	private String time;
 	private String empId;
+	private String date;
+	private String status;
+
+	public String getDriverId() {
+		return driverId;
+	}
+
+	public void setDriverId(String driverId) {
+		this.driverId = driverId;
+	}
+
+	private String driverId;
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 	public String getEmpId() {
 		return empId;

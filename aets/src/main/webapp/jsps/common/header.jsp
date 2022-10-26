@@ -2,7 +2,9 @@
 <header>
 	<div class="main">
 		<h1>
-			<a href=""><img src="<%=request.getContextPath()%>/images/cab.png" width="50" height="50" /></a>
+			<a href=""><img
+				src="<%=request.getContextPath()%>/images/cab.png" width="50"
+				height="50" /></a>
 		</h1>
 		<p class="modl">
 			AETS/<span>User Module</span>

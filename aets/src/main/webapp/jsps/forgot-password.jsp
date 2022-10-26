@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Forgot Password</title>
-<link rel="stylesheet" href="/AETS/css/style.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style-normal.css">
 </head>
 <body>
 	<form>
@@ -30,7 +30,7 @@
 
 	</form>
 
-	<c:if test="${Enter IF condition}">
+	<c:if test="${Enter condition}">
 A new generated password has been sent to your registered Email-ID.
 
 <button type="button" onclick="">To Login</button>

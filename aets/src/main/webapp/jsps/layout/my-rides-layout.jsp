@@ -30,6 +30,6 @@
 		</div>
 	</div>
 	<tiles:insertAttribute name="footer"></tiles:insertAttribute>
+	<script src="<%=request.getContextPath()%>/js/register.js"></script>
 </body>
-<script src="<%=request.getContextPath()%>/js/welcome.js"></script>
 </html>

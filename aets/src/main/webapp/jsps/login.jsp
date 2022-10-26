@@ -6,7 +6,8 @@
 <head>
 <title>Login</title>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style-normal.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/style-normal.css">
 </head>
 <body>
 	<br>
@@ -21,7 +22,7 @@
 				<mark style="color: white; background-color: red;">${error}</mark>
 			</p>
 		</c:if>
-		<form action="login-controller.html">
+		<form action="login-controller.html" method="post">
 
 			<label> <input type="email" class="input" name="email"
 				placeholder="EMAIL" />
@@ -49,8 +50,8 @@
 	<br>
 	<center>
 		<div id="outer">
-			<a href="register.html">SignUp</a> <a
-				href="forgot-password.html">Forgot Password?</a>
+			<a href="register.html">SignUp</a> <a href="forgot-password.html">Forgot
+				Password?</a>
 		</div>
 	</center>
 	<script>
