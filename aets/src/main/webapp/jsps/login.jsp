@@ -22,7 +22,7 @@
 				<mark style="color: white; background-color: red;">${error}</mark>
 			</p>
 		</c:if>
-		<form action="login-controller.html" method="post">
+		<form action="login-controller.html">
 
 			<label> <input type="email" class="input" name="email"
 				placeholder="EMAIL" />

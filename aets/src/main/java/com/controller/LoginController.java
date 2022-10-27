@@ -20,12 +20,12 @@ import com.validation.FormValidation;
 @Controller
 public class LoginController {
 
-	@RequestMapping(value = "login", method = RequestMethod.GET)
+	@RequestMapping(value = "login")
 	public String login() {
 		return "login";
 	}
 
-	@RequestMapping(value = "login-controller", method = RequestMethod.POST)
+	@RequestMapping(value = "login-controller")
 	public ModelAndView loginController(@RequestParam String email,
 			@RequestParam String password, HttpServletRequest request)
 			throws ClassNotFoundException, SQLException {

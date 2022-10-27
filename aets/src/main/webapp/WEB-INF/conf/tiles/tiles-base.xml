@@ -8,6 +8,10 @@
 
 	<definition name="register" template="jsps/register.jsp">
 	</definition>
+	
+	<definition name="register-driver" template="jsps/register-driver.jsp">
+	</definition>
+	
 
 	<definition name="forgot-password" template="jsps/forgot-password.jsp">
 	</definition>

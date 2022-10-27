@@ -12,12 +12,12 @@ import com.utility.Encryption;
 @Controller
 public class RegisterController {
 
-	@RequestMapping(value = "register", method = RequestMethod.POST)
+	@RequestMapping(value = "register")
 	public String register() {
 		return "register";
 	}
 
-	@RequestMapping(value = "register-controller", method = RequestMethod.POST)
+	@RequestMapping(value = "register-controller")
 	public ModelAndView registerController(Employee emp) {
 		Encryption encrypt = new Encryption();
 		ModelAndView mav = new ModelAndView();
@@ -30,6 +30,18 @@ public class RegisterController {
 			mav.addObject("error", msg);
 			mav.setViewName("register");
 		}
+		return mav;
+	}
+	
+	@RequestMapping(value = "register-driver")
+	public String registerDriver() {
+		return "register-driver";
+	}
+	
+	@RequestMapping(value = "register-driver-controller")
+	public ModelAndView registerDriverController() {
+		ModelAndView mav = new ModelAndView();
+		
 		return mav;
 	}
 

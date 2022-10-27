@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <section class="rgt-cont centr">
 	<div class="frm">
 		<c:if test="${(error != 'success') && (error != null)}">
@@ -10,7 +13,7 @@
 				<mark style="color: white; background-color: green;">${error}</mark>
 			</p>
 		</c:if>
-		<form action="welcome-controller.html" method="post">
+		<form action="welcome-controller.html">
 
 			<p>
 				<label>Start</label><select name="start" id="start">

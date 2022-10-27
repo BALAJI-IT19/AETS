@@ -5,12 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Register Page</title>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style-normal.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/style-normal.css">
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
-	<form action="register-controller.html" method="post">
+	<form action="register-controller.html">
 
 		<div class="forHeading">Registration Page</div>
 
@@ -104,6 +105,17 @@
 
 			<button type="submit" onclick="return Validate()">submit</button>
 	</form>
+
+	<center>
+		<div id="outer">
+			<p>
+				<a href="register-driver.html">Register as driver?</a>
+			</p>
+			<p>
+				<a href="login.html">Login</a>
+			</p>
+		</div>
+	</center>
 
 	<script type="text/javascript">
 		$(function() {
